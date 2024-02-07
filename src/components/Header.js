@@ -3,47 +3,55 @@ import { useState } from "react";
 
 export default function Header() {
   const [toggleMenu, setToggleMenu] = useState(false);
+
   return (
-    <header className="px-4 py-1 text-2xl flex justify-between bg-secondary">
-      <h3 className="font-bold text-black ">Dinesh Thanigaivel</h3>
+    <header className="flex justify-between px-5 py-2 bg-primary ">
+      <a className="font-bold text-black" href="#">
+        Dinesh Thanigaivel
+      </a>
       <nav className="hidden md:block">
-        <ul className="flex text-white">
+        <ul className="flex text-white ">
           <li>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
-            <a href="#">About</a>
+            <a href="/#about">About</a>
           </li>
           <li>
-            <a href="#">Projects</a>
+            <a href="/#projects">Projects</a>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <a href="/#resume">Resume</a>
+          </li>
+          <li>
+            <a href="/#contact">Contact</a>
           </li>
         </ul>
       </nav>
       {toggleMenu && (
-        <nav className="md:hidden block ">
-          <ul className="mobile-nav flex flex-col text-white">
+        <nav className="block md:hidden ">
+          <ul
+            onClick={() => setToggleMenu(!toggleMenu)}
+            className="flex flex-col text-white  mobile-nav"
+          >
             <li>
               <a href="#">Home</a>
             </li>
             <li>
-              <a href="#">About</a>
+              <a href="#about">About</a>
             </li>
             <li>
-              <a href="#">Projects</a>
+              <a href="#projects">Projects</a>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <a href="#contact">Contact</a>
             </li>
           </ul>
         </nav>
       )}
-
       <button
         onClick={() => setToggleMenu(!toggleMenu)}
-        className="md:hidden block"
+        className="block md:hidden"
       >
         <Bars3Icon className="text-white h-5" />
       </button>
